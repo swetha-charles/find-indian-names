@@ -7,3 +7,5 @@ To run the script, make sure first the data is in place in the correct files. To
 After this run the following command to run the script: `./find_indian_names.sh > output.tsv`. 
 
 This will create a new file called `output.tsv`. The format will be similar to the "names_to_check.csv" file but with the addition of an extra column which indentifies each row as either Indian or not. 
+
+Note that a header is not added to the output automatically - this will need to be done manually. 
