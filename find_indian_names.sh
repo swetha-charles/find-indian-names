@@ -3,7 +3,7 @@
 
 # Iterate over all the names that we want to check
 # Each owner name will be a a string which is combination of first, middle and last name 
-while IFS="\"" read -r first_quote owner_name rest
+while IFS='\t' read -r owner_name rest
 do 
     is_match=false
     
@@ -17,13 +17,13 @@ do
             break;
         fi
 
-    done < <(tail -n +2 indian_names.csv)
+    done < <(tail -n +2 indian_names.tsv)
 
     if $is_match;
     then
-        echo "\"$owner_name\" $rest, indian"
+        echo "$owner_name   $rest   indian"
     else
-        echo "\"$owner_name\" $rest, not indian"
+        echo "$owner_name   $rest   not indian"
     fi
  
-done < <(tail -n +2 names_to_check.csv)
+done < <(tail -n +2 names_to_check.tsv)
